@@ -1,6 +1,6 @@
 FROM alpine:3.2
 
-ADD https://releases.hashicorp.com/vault/0.3.1/vault_0.3.1_linux_amd64.zip vault.zip
+ADD https://releases.hashicorp.com/vault/0.4.0/vault_0.4.0_linux_amd64.zip vault.zip
 RUN apk add --update unzip openssl && \
     unzip vault.zip && \
     rm vault.zip && \
