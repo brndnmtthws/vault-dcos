@@ -76,7 +76,7 @@ High-Availability Enabled: true
 ### Step 3: Unseal your vault
 Repeat the following command 3 times, pasting a separate key each time:
 ```
-$ docker run -i -e "VAULT_SKIP_VERIFY=true" -e "VAULT_ADDR=https://vault.marathon.mesos:8200" --entrypoint=vault -t brndnmtthws/vault-dcos
+$ docker run -i -e "VAULT_SKIP_VERIFY=true" -e "VAULT_ADDR=https://vault.marathon.mesos:8200" --entrypoint=vault -t brndnmtthws/vault-dcos unseal
 Key (will be hidden):
 Sealed: true
 Key Shares: 5
