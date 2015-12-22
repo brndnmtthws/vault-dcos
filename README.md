@@ -88,9 +88,9 @@ Once it says `Sealed: false`, your vault is unsealed.
 Run an interactive shell to test your vault:
 ```
 $ docker run -i -e "VAULT_SKIP_VERIFY=true" -e "VAULT_ADDR=https://vault.marathon.mesos:8200" --entrypoint=/bin/sh -t brndnmtthws/vault-dcos
-$ vault auth 0845ac5e-69a3-7d06-95a7-b97c18f7f9da
+$ vault auth 11aaf733-f280-fbaf-251d-69b9606bf4fa # use root token from init
 Successfully authenticated!
-token: 0845ac5e-69a3-7d06-95a7-b97c18f7f9da
+token: 11aaf733-f280-fbaf-251d-69b9606bf4fa
 token_duration: 0
 token_policies: [root]
 $ vault token-create
