@@ -1,8 +1,8 @@
-# Vault on DCOS
+# Vault on DC/OS
 
-This is an example of how to run [HashiCorp's Vault](https://github.com/hashicorp/vault) on DCOS. By default, it's configured in HA mode with ZooKeeper as the backend.
+This is an example of how to run [HashiCorp's Vault](https://github.com/hashicorp/vault) on DC/OS. By default, it's configured in HA mode with ZooKeeper as the backend.
 
-## Running on DCOS
+## Running on DC/OS
 
 ### Step 1: Launch Vault server
 Save the following JSON as `vault.json`:
@@ -44,7 +44,7 @@ $ dcos marathon app add vault.json
  * VAULT_CONFIG_JSON: JSON config file contents
 
 ### Step 2: Initialize the vault
-SSH into one of the DCOS cluster nodes, and initialize the vault with the following:
+SSH into one of the DC/OS cluster nodes, and initialize the vault with the following:
 ```
 $ docker run -e "VAULT_SKIP_VERIFY=true" -e "VAULT_ADDR=https://vault.marathon.mesos:8200" --entrypoint=vault -t brndnmtthws/vault-dcos init
 Key 1: 62b6e5c157446c05c067bb41fadf931fd8f422f4af2a4c0ee056acbd5a89d3ed01
@@ -84,6 +84,8 @@ Key Threshold: 3
 Unseal Progress: 1
 ```
 Once it says `Sealed: false`, your vault is unsealed.
+
+**Note**: You'll have to run the command above with each key for each instance of Vault you're running. For example, if you run 3 instances (in HA mode), you'll have to repeatedly run the command and enter each key 3 times to unseal all 3 Vault instances. That's a total of 9 commands, if you're counting.
 ### Step 4: Start using your vault!
 Run an interactive shell to test your vault:
 ```
