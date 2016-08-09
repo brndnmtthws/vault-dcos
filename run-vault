@@ -8,9 +8,9 @@ if [ -z "$VAULT_TLS_KEY" -a -z "$VAULT_TLS_CERT" ]; then
     -signkey /tmp/server-key.pem -days 3650
 else
   echo "Writing TLS key from VAULT_TLS_KEY"
-  echo $VAULT_TLS_KEY > /tmp/server-key.pem
+  echo "${VAULT_TLS_KEY}" > /tmp/server-key.pem
   echo "Writing TLS cert from VAULT_TLS_CERT"
-  echo $VAULT_TLS_CERT > /tmp/server-cert.pem
+  echo "${VAULT_TLS_CERT}" > /tmp/server-cert.pem
 fi
 
 if [ ! -z "$VAULT_CONFIG_HCL" ]; then
